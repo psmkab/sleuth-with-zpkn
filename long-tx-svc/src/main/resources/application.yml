@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: long-tx-service
+  zipkin:
+    baseUrl: http://localhost:9411
+    sampler:
+      probability: 1
+
+server:
+  port: 8081
