@@ -11,7 +11,7 @@ compile 'org.springframework.cloud:spring-cloud-starter-sleuth'
 ![image](https://user-images.githubusercontent.com/15953163/86604422-518d0f80-bfe0-11ea-8def-f2d56f698522.png)
 
 ## Caution
-`RestTemplte` always enrolled in application context as a bean
+`RestTemplete` always enrolled in application context as a bean
     
 refer : spring-cloud-sleuth-core-2.1.4.RELEASE-sources.jar!/org/springframework/cloud/sleuth/instrument/web/client/TraceWebClientAutoConfiguration.java:73
 ## Reference  
