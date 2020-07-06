@@ -2,7 +2,6 @@ package tx.service
 
 import extension.nextIntWithBound
 import org.springframework.stereotype.Service
-import org.springframework.web.client.RestTemplate
 import java.util.*
 
 @Service
@@ -15,12 +14,7 @@ class LongTransactionService {
     /**
      * Mocking the long transaction service w/ random value.
      */
-    fun longTx(): String {
-        return try {
-            Thread.sleep(r.nextIntWithBound(0, 5) * TIME_MULTIPLIER)
-            "Success"
-        } catch (e: Exception) {
-            "Fail"
-        }
+    fun longTx() {
+        Thread.sleep(r.nextIntWithBound(0, 2) * TIME_MULTIPLIER)
     }
 }

@@ -1,9 +1,7 @@
 package tx.api
 
-import org.springframework.web.bind.annotation.CrossOrigin
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.slf4j.LoggerFactory
+import org.springframework.web.bind.annotation.*
 import tx.service.ShortTransactionService
 
 @RestController
@@ -12,11 +10,19 @@ import tx.service.ShortTransactionService
 class Controller(
     private val shortTransactionService: ShortTransactionService
 ) {
+    companion object {
+        val log = LoggerFactory.getLogger(this::class.java)
+    }
+
     @GetMapping("/hello")
     fun hello() = "World"
 
     @GetMapping("/short/transactions")
-    fun test(): String {
+    fun transactions(@RequestHeader headers: Map<String, String>): String {
+        log.info("Get request..")
+        headers.forEach {
+            log.info("key: ${it.key}, value: ${it.value}")
+        }
         return shortTransactionService.shortTx()
     }
 }

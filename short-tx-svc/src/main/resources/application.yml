@@ -3,8 +3,14 @@ spring:
     name: short-tx-service
   zipkin:
     baseUrl: http://localhost:9411
+  sleuth:
+    traceId128: true
     sampler:
       probability: 1
-
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
 server:
   port: 8082
